@@ -1,0 +1,11 @@
+<h2>Crear nueva nota</h2>
+
+<form (submit)="agregarNota()">
+  <label>Título:</label>
+  <input type="text" [(ngModel)]="titulo" required>
+
+  <label>Contenido:</label>
+  <textarea [(ngModel)]="contenido" required></textarea>
+
+  <button type="submit">Agregar</button>
+</form>
