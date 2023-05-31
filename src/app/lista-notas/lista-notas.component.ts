@@ -15,6 +15,6 @@ export class ListaNotasComponent {
   }
 
   agregarNota(nuevaNota: Nota) {
-    this.notas.push(nuevaNota);
+    this.notaService.agregarNota(nuevaNota);
   }
 }
