@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Nota } from '../app.module';
-import { NotaService } from '../nota.service';
 
 @Component({
   selector: 'app-formulario-nota',
@@ -13,15 +12,12 @@ export class FormularioNotaComponent {
   titulo: string = '';
   contenido: string = '';
 
-  constructor(private notaService: NotaService) { }
-
   agregarNota() {
     const nuevaNota: Nota = {
       titulo: this.titulo,
       contenido: this.contenido
     };
 
-    this.notaService.agregarNota(nuevaNota);
     this.notaCreada.emit(nuevaNota);
 
     this.titulo = '';

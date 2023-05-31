@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Nota } from '../app.module';
 import { NotaService } from '../nota.service';
 
@@ -7,17 +7,14 @@ import { NotaService } from '../nota.service';
   templateUrl: './lista-notas.component.html',
   styleUrls: ['./lista-notas.component.css']
 })
-export class ListaNotasComponent implements OnInit {
+export class ListaNotasComponent {
   notas: Nota[] = [];
 
-  constructor(private notaService: NotaService) { }
-
-  ngOnInit(): void {
+  constructor(private notaService: NotaService) {
     this.notas = this.notaService.obtenerNotas();
   }
 
   agregarNota(nuevaNota: Nota) {
-    this.notaService.agregarNota(nuevaNota);
-    this.notas = this.notaService.obtenerNotas();
+    this.notas.push(nuevaNota);
   }
 }
